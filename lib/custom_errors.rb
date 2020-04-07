@@ -8,11 +8,15 @@ class Person
   def get_married(person)
     self.partner = person
     person.partner = self
+
+    if person.class != Person
+      raise PartnerError
+    end 
   end
 
   class PartnerError < StandardError
   end
-  
+
 end
 
 beyonce = Person.new("Beyonce")
